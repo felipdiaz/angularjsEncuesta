@@ -1,0 +1,64 @@
+<header class="bg-primary text-white p-3">
+  <h1 class="mb-0 text-center">Resultado Encuesta</h1>
+</header>
+
+<div class="container mt-3">
+  <button class="btn btn-danger btn-lg" ui-sref="home">Volver</button>
+</div>
+
+<!-- Espacio debajo del header -->
+<div style="height: 20px;"></div>
+
+<div class="container">
+  <div class="row g-4">
+    <!-- Gráfico de barras -->
+    <div class="col-md-6">
+      <div class="p-4 bg-white rounded border border-primary">
+        <canvas 
+          class="chart chart-bar"
+          chart-data="vm.chartData"
+          chart-labels="vm.chartLabels"
+          chart-series="vm.chartSeries"
+          chart-options="vm.chartOptions">
+        </canvas>
+      </div>
+    </div>
+
+    <!-- Gráfico de líneas -->
+    <div class="col-md-6">
+      <div class="p-4 bg-white rounded border border-primary">
+        <canvas 
+          class="chart chart-line"
+          chart-data="vm.lineChartData"
+          chart-labels="vm.lineChartLabels"
+          chart-series="vm.lineChartSeries"
+          chart-options="vm.lineChartOptions">
+        </canvas>
+      </div>
+    </div>
+
+    <!-- Gráfico de pastel -->
+    <div class="col-md-6">
+      <div class="p-4 bg-white rounded border border-primary">
+        <canvas 
+          class="chart chart-pie"
+          chart-data="vm.pieChartData"
+          chart-labels="vm.pieChartLabels"
+          chart-options="vm.pieChartOptions">
+        </canvas>
+      </div>
+    </div>
+
+    <!-- Gráfico doughnut -->
+    <div class="col-md-6">
+      <div class="p-4 bg-white rounded border border-primary">
+        <canvas 
+          class="chart chart-doughnut"
+          chart-data="vm.doughnutChartData"
+          chart-labels="vm.doughnutChartLabels"
+          chart-options="vm.doughnutChartOptions">
+        </canvas>
+      </div>
+    </div>
+  </div>
+</div>

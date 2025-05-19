@@ -1,0 +1,37 @@
+<header class="bg-primary text-white text-center py-4">
+    <h1>Encuesta</h1>
+  </header>
+
+<div class="p-4 bg-white rounded border border-primary" style="max-width: 600px; margin: 60px auto; font-size: 1.25rem;">
+  <div class="card-body">
+    <form name="vm.surveyForm" novalidate>
+        <label for="musicalStyle" class="form-label fw-bold">Estilo Musical *</label>
+        <select id="musicalStyle" 
+                name="musicalStyle" 
+                class="form-select form-select-lg mb-3" 
+                ng-model="vm.formData.musicalStyle" 
+                ng-options="style.id as style.name for style in vm.styleMusical"
+                ng-class="{'is-invalid': vm.surveyForm.musicalStyle.$error.required && vm.surveyForm.musicalStyle.$dirty}"
+                required>
+        <option value="" selected>Seleccione un estilo</option>
+        </select>
+        <p class="text-danger"  ng-show="vm.surveyForm.musicalStyle.$error.required && vm.surveyForm.musicalStyle.$dirty">Debe seleccionar una opción</p>
+        <label for="email" class="form-label fw-bold">Correo Electrónico *</label>
+        <input id="email" 
+               name="email" 
+               type="email" 
+               class="form-control form-control-lg"
+               ng-class="{'is-invalid': (vm.surveyForm.email.$error.required || vm.surveyForm.email.$error.email) && vm.surveyForm.email.$dirty}"
+               ng-model="vm.formData.email" 
+               required>
+        <p class="text-danger"  ng-show="vm.surveyForm.email.$error.required && vm.surveyForm.email.$dirty">Debe agregar un Email</p>
+        <p class="text-danger"  ng-show="vm.surveyForm.email.$error.email && vm.surveyForm.email.$dirty">Formato incorrecto</p>
+
+        <!-- Contenedor botones centrados -->
+        <div class="mt-4 d-flex justify-content-center">
+        <button type="button" class="btn btn-secondary btn-lg mx-2" ui-sref="home">Volver</button>
+        <button type="button" class="btn btn-primary btn-lg mx-2" ng-click="vm.functions.save()" ng-disabled="vm.surveyForm.$invalid">Guardar</button>
+        </div>
+    </form>
+  </div>
+</div>
